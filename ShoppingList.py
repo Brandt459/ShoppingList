@@ -6,7 +6,7 @@ items = []
 
 
 # Functions
-def addItem():
+def add_item():
     if item.get() == '':
         return
     if item.get() in items:
@@ -15,7 +15,7 @@ def addItem():
     items_list.insert('end', item.get())
 
 
-def deleteItem():
+def delete_item():
     items.remove(items_list.get('anchor'))
     items_list.delete('anchor')
 
@@ -30,7 +30,7 @@ tk.Label(root, text='Item').grid(row=0)
 # Add Item Button
 item = tk.Entry(root)
 item.grid(row=0, column=1)
-tk.Button(root, text='Add Item', command=addItem,
+tk.Button(root, text='Add Item', command=add_item,
           width=10).grid(row=0, column=2)
 
 # Items list
@@ -42,12 +42,10 @@ for i in items:
     items_list.insert('end', i)
 
 # Add buttons
-tk.Button(root, text='Delete Item', command=deleteItem,
+tk.Button(root, text='Delete Item', command=delete_item,
           width=10, height=4).grid(row=1, column=2)
-
 tk.Button(root, text='Clear', command=clear,
           width=10, height=4).grid(row=2, column=2)
-
 tk.Button(root, text='Quit', command=root.quit, width=10, height=2).grid(
     row=3, column=2, sticky=tk.W)
 
